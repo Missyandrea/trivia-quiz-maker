@@ -20,7 +20,7 @@ export const fetchQuizData = createAsyncThunk(
       return res.data;
       
     } catch (error) {
-      console.log(error); //comming back
+      console.log(error); //handle error
     }
   }
 );
@@ -30,6 +30,7 @@ export const quizSlice = createSlice({
   initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
+    //doing just the fulfilled case for now
     builder.addCase(
       fetchQuizData.fulfilled,
       (state, action: PayloadAction<QuizResponse>) => {
